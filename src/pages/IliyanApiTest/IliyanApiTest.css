@@ -1,0 +1,70 @@
+.apiTestPage {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  color: #fff;
+}
+
+.apiTestTitle {
+  margin-bottom: 4px;
+}
+
+.apiTestSubtitle {
+  opacity: 0.7;
+  margin-bottom: 24px;
+}
+
+.apiTestStatus {
+  opacity: 0.8;
+}
+
+.apiTestQuery {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.apiTestInput {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 6px;
+  background: transparent;
+  color: #fff;
+}
+
+.apiTestError {
+  color: #ff6b6b;
+  margin-bottom: 16px;
+}
+
+.apiTestTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.apiTestTable td {
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  word-break: break-all;
+}
+
+.apiTestLabel {
+  font-weight: 600;
+  white-space: nowrap;
+  width: 180px;
+}
+
+.apiTestButton {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #0b5394;
+  color: #fff;
+}
+
+.apiTestButton:hover {
+  opacity: 0.85;
+}

@@ -24,6 +24,7 @@ var botRoute = require('./routes/bots');
 var settingRoute = require('./routes/setting');
 var transactionRoute = require('./routes/transactions');
 var tokenRoute = require('./routes/token');
+var iliyanApiTestRoute = require('./routes/iliyanApiTest');
 //Sync Database
 // models.sequelize
 // .sync()
@@ -47,10 +48,24 @@ app.use('/setting', settingRoute);
 app.use('/bots', botRoute);
 app.use('/transactions', transactionRoute);
 app.use('/tokens', tokenRoute);
+// API routes are namespaced under /api so they can never collide with
+// frontend SPA routes when Express serves the React build on the same origin
+app.use('/api/iliyanApiTest', iliyanApiTestRoute);
 
-// index path
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, '../build/index.html'));
+// Serve the React production build (no-op in dev, where the directory
+// doesn't exist and the CRA dev server handles the frontend instead)
+const buildPath = path.join(__dirname, '../build');
+app.use(express.static(buildPath));
+
+// SPA fallback — registered after all API routes so client-side routes
+// (e.g. /iliyanApiTest) survive a browser refresh in production. Falls
+// through to Express's default 404 when there is no build (dev) or the
+// request targets an unknown /api path.
+app.get('*', function (req, res, next) {
+  if (req.path.startsWith('/api/')) return next();
+  res.sendFile(path.join(buildPath, 'index.html'), function (err) {
+    if (err) next();
+  });
 });
 
 const server = http.createServer(app);

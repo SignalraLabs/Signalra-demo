@@ -11,6 +11,7 @@ import NavBar from "../../components/NavBar/NavBar.js"
 import Footer from "../../components/Footer/Footer.js"
 import Details from "../../pages/Details/Details"
 import PromotePage from "../../pages/PromotePage/PromotePage.js"
+import IliyanApiTest from "../IliyanApiTest/IliyanApiTest.js"
 import RequireWallet from "../../components/RequireWallet/RequireWallet"
 import WalletEntry from "../WalletEntry/WalletEntry"
 
@@ -81,6 +82,8 @@ export const Mainpage = () => {
                 </RequireWallet>
               }
             />
+            {/* Technical assessment page — public contract data, no wallet required */}
+            <Route path="/iliyanApiTest" element={<IliyanApiTest />} />
             <Route
               path="/promote"
               element={

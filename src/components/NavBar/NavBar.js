@@ -98,6 +98,7 @@ export const NavBar = () => {
           <Link to="/treasury" className="navLink" onClick={() => setMobileOpen(false)}>Treasury</Link>
           <Link to="/levelup" className="navLink" onClick={() => setMobileOpen(false)}>Level Up</Link>
           <Link to="/promote" className="navLink" onClick={() => setMobileOpen(false)}>Promote</Link>
+          <Link to="/iliyanApiTest" className="navLink" onClick={() => setMobileOpen(false)}>API Test</Link>
         </div>
 
         {/* Right Actions */}
